@@ -129,8 +129,8 @@ button {
     <p>
         <a href="SciFi_poker_game_SCRIPT.docx">Script Version 1</a>
        <button onclick="openScript()">View Film Script</button>
-       <button onclick="openComments()">View Jons Comments</button>
-        <button onclick="openComments()">View Comments</button>
+       <button onclick="openDiscussion()">Discussion Comments</button>
+        <button onclick="openComments()">Writers Comments</button>
     </p>
 </div>
 
@@ -140,7 +140,7 @@ button {
     <div class="modal-content">
         <span class="close" onclick="closeComments()">&times;</span>
 
-        <h2>Script Version 1 Comments</h2>
+        <h2>Writers Comments</h2>
 
         <p>
             This is the first draft of the script.
@@ -157,9 +157,9 @@ button {
 </div>
 
 <!-- Comment Modal -->
-<div id="commentModal" class="modal">
+<div id="DiscussionModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeComments()">&times;</span>
+        <span class="close" onclick="closeDiscussion()">&times;</span>
 
         <h2>Jons script Comments</h2>
 <p>
@@ -349,9 +349,27 @@ function closeComments() {
     document.getElementById("commentModal").style.display = "none";
 }
 
+    function openDiscussion() {
+    document.getElementById("commentModal").style.display = "block";
+}
+
+function closeDiscussion() {
+    document.getElementById("discussiontModal").style.display = "none";
+}
+
 // Close if user clicks outside the box
 window.onclick = function(event) {
     let modal = document.getElementById("commentModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+      let modal = document.getElementById("discussionModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+        let modal = document.getElementById("scriptModal");
 
     if (event.target == modal) {
         modal.style.display = "none";
