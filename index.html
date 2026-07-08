@@ -39,6 +39,8 @@ html, body {
     box-sizing: border-box;
 }
 
+
+  
 .media-box {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -99,8 +101,13 @@ button {
   
 @media (max-width: 768px) {
     .panel {
-          flex: 1 1 calc(33.333% - 20px);
-    box-sizing: border-box;
+        flex: 1 1 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 </style>
