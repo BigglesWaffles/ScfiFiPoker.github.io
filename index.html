@@ -56,6 +56,46 @@ html, body {
   p {
     font-size: 1.5rem;
 }
+
+/* Button styling */
+button {
+    font-size: 1rem;
+    padding: 8px 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+}
+
+/* Dark background overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Popup box */
+.modal-content {
+    background: white;
+    width: 70%;
+    max-width: 600px;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.close {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
   
 @media (max-width: 768px) {
     .panel {
@@ -73,10 +113,38 @@ html, body {
     <h1>This is the Sci Fi Poker video website</h1>
 </div>
   <div class="container">
-     <div class="panel">
-      <h2>Script Downloads</h2>
-        <p><a href="SciFi_poker_game_SCRIPT.docx"> Script Version 1</a></p>
+<div class="panel">
+    <h2>Script Downloads and comments</h2>
+
+    <p>
+        <a href="SciFi_poker_game_SCRIPT.docx">Script Version 1</a>
+        <button onclick="openComments()">View Comments</button>
+    </p>
+</div>
+
+
+<!-- Comment Modal -->
+<div id="commentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeComments()">&times;</span>
+
+        <h2>Script Version 1 Comments</h2>
+
+        <p>
+            This is the first draft of the script.
+            The main areas for review are character dialogue,
+            pacing of the poker scene, and the interaction
+            between the players.
+        </p>
+
+        <p>
+            Future versions will include additional scene
+            development and revised dialogue.
+        </p>
     </div>
+</div>
+
+
     
       <div class="panel">
         <h2>Video Clips</h2>
@@ -111,7 +179,26 @@ html, body {
     </div>
   </div> 
 
-  
+
+
+  <script>
+function openComments() {
+    document.getElementById("commentModal").style.display = "block";
+}
+
+function closeComments() {
+    document.getElementById("commentModal").style.display = "none";
+}
+
+// Close if user clicks outside the box
+window.onclick = function(event) {
+    let modal = document.getElementById("commentModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
   
 </body>
