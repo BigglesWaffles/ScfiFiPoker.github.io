@@ -35,12 +35,14 @@ html, body {
 }
 
 .panel {
-    flex: 1 1 calc(50% - 10px);
+      flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
     .panel {
-        flex: 1 1 100%;
+          flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
     }
 }
 </style>
