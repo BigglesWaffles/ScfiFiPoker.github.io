@@ -130,7 +130,7 @@ button {
         <a href="SciFi_poker_game_SCRIPT.docx">Script Version 1</a>
        <button onclick="openScript()">View Film Script</button>
        <button onclick="openDiscussion()">Discussion Comments</button>
-        <button onclick="openComments()">Writers Comments</button>
+        <button onclick="openComment()">Writers Comments</button>
     </p>
 </div>
 
@@ -157,7 +157,7 @@ button {
 </div>
 
 <!-- Comment Modal -->
-<div id="DiscussionModal" class="modal">
+<div id="discussionModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeDiscussion()">&times;</span>
 
@@ -341,16 +341,16 @@ function closeScript() {
     document.getElementById("scriptModal").style.display = "none";
 }
     
-function openComments() {
+function openComment() {
     document.getElementById("commentModal").style.display = "block";
 }
 
-function closeComments() {
+function closeComment() {
     document.getElementById("commentModal").style.display = "none";
 }
 
     function openDiscussion() {
-    document.getElementById("commentModal").style.display = "block";
+    document.getElementById("discussionModal").style.display = "block";
 }
 
 function closeDiscussion() {
