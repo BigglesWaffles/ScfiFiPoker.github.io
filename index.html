@@ -237,12 +237,27 @@ Ending as per John.
   <div class="modal-content">
     <span class="close" onclick="closePdf()">&times;</span>
 
+    <div id="pdf-container">
+  <!-- Your existing embed tag (e.g., iframe) -->
     <iframe  id="pdfFrame"
       src="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf"
       frameborder="0">
     </iframe>
+
+        <iframe id="pdf-viewer" src="your-file.pdf" width="100%" height="500px"></iframe>
+</div>
+    
   </div>
 </div>
+
+
+    <div id="mobile-pdf-fallback" style="display: none; text-align: center; padding: 20px;">
+  <p>Mobile browsers cannot view embedded PDFs directly.</p>
+  <a href="your-file.pdf" target="_blank" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">
+    Open / Print PDF
+  </a>
+</div>
+
     
     
       <div class="panel">
@@ -381,7 +396,27 @@ Ending as per John.
 
 
   <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Define the PDF URL (Match this to your actual file path)
+  const pdfUrl = "your-file.pdf"; 
 
+  // 2. Detect iOS devices or small mobile screens
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isSmallScreen = window.innerWidth < 768;
+
+  // 3. Trigger fallback if condition is met
+  if (isIOS || isSmallScreen) {
+    const container = document.getElementById("pdf-container");
+    const fallback = document.getElementById("mobile-pdf-fallback");
+
+    if (container && fallback) {
+      // Hide the broken iframe container
+      container.style.display = "none";
+      // Show the mobile button link
+      fallback.style.display = "block";
+    }
+  }
+});
     
 function openComment() {
     document.getElementById("commentModal").style.display = "block";
