@@ -131,6 +131,7 @@ button {
        <button onclick="openScript()">View Film Script</button>
        <button onclick="openDiscussion()">Discussion Comments</button>
         <button onclick="openComment()">Writers Comments</button>
+      <button onclick="openPdf()"">View PDF</button>
     </p>
 </div>
 
@@ -306,11 +307,9 @@ William:   wakes up in the garden just a bit dizzy – not too sure if anything 
 
 </div>
 
-<button id="openPdf">View PDF</button>
-
 <div id="pdfModal" class="modal">
   <div class="modal-content">
-    <button class="close" id="closePdf">&times;</button>
+    <span class="close" onclick="closePdf()">&times;</span>
 
     <iframe
       src="ScFi_poker_game_SCRIPT_V2.pdf"
@@ -495,6 +494,14 @@ function closeComment() {
     document.getElementById("commentModal").style.display = "none";
 }
 
+    function openPdf() {
+    document.getElementById("pdfModal").style.display = "block";
+}
+
+function closePdf() {
+    document.getElementById("pdfModal").style.display = "none";
+}
+
     function openDiscussion() {
     document.getElementById("discussionModal").style.display = "block";
 }
@@ -516,6 +523,12 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
        modal = document.getElementById("scriptModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+
+         modal = document.getElementById("pdfModal");
 
     if (event.target == modal) {
         modal.style.display = "none";
