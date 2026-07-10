@@ -397,24 +397,23 @@ Ending as per John.
 
   <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Define the PDF URL (Match this to your actual file path)
-  const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf"; 
+  // 1. Precise iOS detection (ignores desktop screen widths)
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || 
+                (/Macintosh/.test(navigator.userAgent) && 'ontouchend' in document);
 
-  // 2. Detect iOS devices or small mobile screens
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  const isSmallScreen = window.innerWidth < 768;
-
-  // 3. Trigger fallback if condition is met
-  if (isIOS || isSmallScreen) {
+  // 2. ONLY run the fallback if it is a confirmed touch iOS device
+  if (isIOS) {
     const container = document.getElementById("pdf-container");
     const fallback = document.getElementById("mobile-pdf-fallback");
 
     if (container && fallback) {
-      // Hide the broken iframe container
       container.style.display = "none";
-      // Show the mobile button link
       fallback.style.display = "block";
     }
+  } else {
+    // Desktop safety net: Ensure the mobile button is strictly hidden on laptops
+    const fallback = document.getElementById("mobile-pdf-fallback");
+    if (fallback) fallback.style.display = "none";
   }
 });
     
