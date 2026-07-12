@@ -486,6 +486,8 @@ Ending as per John.<br>
 
 
   <script>
+
+    
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Precise iOS detection (ignores desktop screen widths)
   const isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || 
@@ -516,7 +518,18 @@ function closeComment() {
 }
 
     function openPdf() {
-    document.getElementById("pdfModal").style.display = "block";
+    /* document.getElementById("pdfModal").style.display = "block"; */
+      
+    const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf";
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        window.open(pdfUrl, "_blank");
+    } else {
+        document.getElementById("pdfModal").style.display = "block";
+    }
+      
 }
 
 function closePdf() {
