@@ -140,6 +140,23 @@ display: none;
     display: none !important;
   }
 
+  #chatFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+#chat-container {
+    position: absolute;
+    top: 50px;      /* leave room for the close button */
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+  #mobile-chat-fallback {
+    display: none !important;
+  }
+
   @media (pointer: coarse) {
     #pdf-container {
       display: none !important;
@@ -353,7 +370,7 @@ Ending as per John.<br>
     </div>
 
   </div>
-
+</div>
 
 
 <div id="chatModal" class="modal">
