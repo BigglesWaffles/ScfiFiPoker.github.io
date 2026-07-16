@@ -181,7 +181,8 @@ display: none;
     <p>
        <button onclick="openDiscussion()">Discussion Comments</button>
         <button onclick="openComment()">Writers Comments</button> <p>
-      <button onclick="openPdf()">View or PRINT or DOWNLOAD script V2 PDF</button>
+      <button onclick="openPdf()">View pdf version of script </button>
+            <button onclick="openChatGPT()">View chatGPT comments on script</button>
         </p>
         <br>
       <a href="SciFi_poker_game_SCRIPT_v2.docx">DOWNLOAD (only press if you really want the DOCX V2 downloaded- not the PDF)</a>
@@ -352,6 +353,48 @@ Ending as per John.<br>
     </div>
 
   </div>
+
+
+
+<div id="chatModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChatGPT()">&times;</span>
+
+    <div id="chat-container">
+      <!-- ONLY ONE IFRAME: Fixed the broken style syntax and merged the attributes -->
+<!--<iframe
+    id="chatFrame"
+     src="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf#zoom=page-width">
+</iframe> -->
+
+      <object
+    data="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf"
+    type="application/pdf"
+    width="100%"
+    height="100%">
+    <p>
+        Your browser cannot display PDFs.
+        <a href="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf">
+            view chatGPT commments
+        </a>
+    </p>
+</object>
+
+      
+    </div>
+    
+    <!-- The Mobile Button now sits SAFELY INSIDE the modal content block -->
+    <div id="mobile-chat-fallback">
+      <p style="margin-bottom: 12px; color: #555;">Mobile browsers cannot scroll embedded files.</p>
+      <a href="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf" target="_blank" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+        chatGPT PDF
+      </a>
+    </div>
+
+  </div>
+
+
+  
 </div>
 
 
@@ -579,8 +622,26 @@ function closeComment() {
       
 }
 
+   function openChatGPT() {
+    /* document.getElementById("chatModal").style.display = "block"; */
+      
+    const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf";
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        window.open(pdfUrl, "_blank");
+    } else {
+        document.getElementById("chatModal").style.display = "block";
+    }
+      
+}
+
 function closePdf() {
     document.getElementById("pdfModal").style.display = "none";
+}
+    function closeChat() {
+    document.getElementById("chatModal").style.display = "none";
 }
 
     function openDiscussion() {
@@ -610,6 +671,12 @@ window.onclick = function(event) {
     }
 
          modal = document.getElementById("pdfModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+
+           modal = document.getElementById("chatModal");
 
     if (event.target == modal) {
         modal.style.display = "none";
