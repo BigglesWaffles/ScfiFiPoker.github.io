@@ -233,7 +233,7 @@ display: none;
     <p>
        <button onclick="openDiscussion()">Discussion Comments</button>
       <button onclick="openPdf()"> storyboard script </button><p>
-            <button onclick="openChatGPT()">View chatGPT comments</button></p>
+      <button onclick="openChatGPT()">View chatGPT comments</button></p>
         </p>
         <br>
       <a href="SciFi_poker_game_SCRIPT_v2.docx">DOWNLOAD (only press if you really want the DOCX V2 downloaded- not the PDF)</a>
@@ -704,9 +704,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Desktop safety net: Ensure the mobile button is strictly hidden on laptops
     const fallback = document.getElementById("mobile-pdf-fallback");
     if (fallback) fallback.style.display = "none";
-     const fallback = document.getElementById("mobile-chat-fallback");
+    fallback = document.getElementById("mobile-chat-fallback");
     if (fallback) fallback.style.display = "none";
-     const fallback = document.getElementById("mobile-shoot-fallback");
+    fallback = document.getElementById("mobile-shoot-fallback");
     if (fallback) fallback.style.display = "none";
   }
 });
