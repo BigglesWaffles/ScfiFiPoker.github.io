@@ -678,8 +678,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 2. ONLY run the fallback if it is a confirmed touch iOS device
   if (isIOS) {
-    const container = document.getElementById("pdf-container");
-    const fallback = document.getElementById("mobile-pdf-fallback");
+    var container = document.getElementById("pdf-container");
+    var fallback = document.getElementById("mobile-pdf-fallback");
 
     if (container && fallback) {
       container.style.display = "none";
@@ -703,7 +703,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
   } else {
     // Desktop safety net: Ensure the mobile button is strictly hidden on laptops
-    const fallback = document.getElementById("mobile-pdf-fallback");
+   var fallback = document.getElementById("mobile-pdf-fallback");
     if (fallback) fallback.style.display = "none";
     fallback = document.getElementById("mobile-chat-fallback");
     if (fallback) fallback.style.display = "none";
