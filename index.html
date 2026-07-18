@@ -140,6 +140,23 @@ display: none;
     display: none !important;
   }
 
+  #shootFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+#shoot-container {
+    position: absolute;
+    top: 50px;      /* leave room for the close button */
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+  #mobile-shoot-fallback {
+    display: none !important;
+  }
+  
   #chatFrame {
     width: 100%;
     height: 100%;
@@ -161,6 +178,9 @@ display: none;
     #pdf-container {
       display: none !important;
   }
+  #shoot-container {
+      display: none !important;
+  }
    #chat-container {
       display: none !important;
     }
@@ -171,6 +191,12 @@ display: none;
       clear: both; /* Prevents hidden layers from altering alignment */
     }
     #mobile-pdf-fallback {
+      display: block !important;
+      text-align: center;
+      padding: 15px 0;
+      clear: both; /* Prevents hidden layers from altering alignment */
+    }
+   #mobile-shoot-fallback {
       display: block !important;
       text-align: center;
       padding: 15px 0;
