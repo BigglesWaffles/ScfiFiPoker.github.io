@@ -358,6 +358,48 @@ Ending as per John.<br>
 </div>
 
 
+
+
+    <div id="shootModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeShoot()">&times;</span>
+
+    <div id="shoot-container">
+      <!-- ONLY ONE IFRAME: Fixed the broken style syntax and merged the attributes -->
+<!--<iframe
+    id="shootFrame"
+     src="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf#zoom=page-width">
+</iframe> -->
+
+      <object
+    data="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf"
+    type="application/pdf"
+    width="100%"
+    height="100%">
+    <p>
+        Your browser cannot display PDFs.
+        <a href="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf">
+            Download the PDF
+        </a>
+    </p>
+</object>
+
+      
+    </div>
+    
+    <!-- The Mobile Button now sits SAFELY INSIDE the modal content block -->
+    <div id="mobile-shoot-fallback">
+      <p style="margin-bottom: 12px; color: #555;">Mobile browsers cannot scroll embedded files.</p>
+      <a href="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf" target="_blank" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+        Open / Print PDF
+      </a>
+    </div>
+
+  </div>
+</div>
+
+    <br>
+
 <div id="pdfModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closePdf()">&times;</span>
