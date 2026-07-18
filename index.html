@@ -233,7 +233,7 @@ display: none;
     <p>
       <button onclick="openPdf()"> storyboard script </button><p>
              <button onclick="openDiscussion()">Discussion Comments</button>
-      <button onclick="openChatGPT()">View chatGPT comments</button></p>
+      <button onclick="openChatGPT()">chatGPT comments</button></p>
         </p>
         <br>
       <a href="SciFi_poker_game_SCRIPT_v2.docx">DOWNLOAD (only press if you really want the DOCX V2 downloaded- not the PDF)</a>
@@ -367,10 +367,6 @@ Ending as per John.<br>
 
     <div id="shoot-container">
       <!-- ONLY ONE IFRAME: Fixed the broken style syntax and merged the attributes -->
-<!--<iframe
-    id="shootFrame"
-     src="https://biggleswaffles.github.io/SciFi_poker_game_SHOOTING_v1.pdf#zoom=page-width">
-</iframe> -->
 
       <object
     data="https://biggleswaffles.github.io/SciFi_poker_game_SHOOTING_v1.pdf"
@@ -407,10 +403,6 @@ Ending as per John.<br>
 
     <div id="pdf-container">
       <!-- ONLY ONE IFRAME: Fixed the broken style syntax and merged the attributes -->
-<!--<iframe
-    id="pdfFrame"
-     src="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf#zoom=page-width">
-</iframe> -->
 
       <object
     data="https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf"
@@ -446,10 +438,6 @@ Ending as per John.<br>
 
     <div id="chat-container">
       <!-- ONLY ONE IFRAME: Fixed the broken style syntax and merged the attributes -->
-<!--<iframe
-    id="chatFrame"
-     src="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf#zoom=page-width">
-</iframe> -->
 
       <object
     data="https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf"
@@ -678,37 +666,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 2. ONLY run the fallback if it is a confirmed touch iOS device
   if (isIOS) {
-    var container = document.getElementById("pdf-container");
-    var fallback = document.getElementById("mobile-pdf-fallback");
+    const container = document.getElementById("pdf-container");
+    const fallback = document.getElementById("mobile-pdf-fallback");
 
     if (container && fallback) {
       container.style.display = "none";
       fallback.style.display = "block";
     }
-    container = document.getElementById("shoot-container");
-    fallback = document.getElementById("mobile-shoot-fallback");
+    const container1 = document.getElementById("shoot-container");
+    const fallback1 = document.getElementById("mobile-shoot-fallback");
 
-    if (container && fallback) {
+    if (container1 && fallback1) {
       container.style.display = "none";
       fallback.style.display = "block";
     }
 
-    container = document.getElementById("chat-container");
-    fallback = document.getElementById("mobile-chat-fallback");
+    const container2 = document.getElementById("chat-container");
+    const fallback2 = document.getElementById("mobile-chat-fallback");
 
-    if (container && fallback) {
+    if (container2 && fallback2) {
       container.style.display = "none";
       fallback.style.display = "block";
     }
     
   } else {
     // Desktop safety net: Ensure the mobile button is strictly hidden on laptops
-   var fallback = document.getElementById("mobile-pdf-fallback");
+   const fallback = document.getElementById("mobile-pdf-fallback");
     if (fallback) fallback.style.display = "none";
-    fallback = document.getElementById("mobile-chat-fallback");
-    if (fallback) fallback.style.display = "none";
-    fallback = document.getElementById("mobile-shoot-fallback");
-    if (fallback) fallback.style.display = "none";
+    const fallback1 = document.getElementById("mobile-chat-fallback");
+    if (fallback1) fallback.style.display = "none";
+    const fallback2 = document.getElementById("mobile-shoot-fallback");
+    if (fallback1) fallback.style.display = "none";
   }
 });
     
@@ -738,7 +726,7 @@ function closeComment() {
     function openShoot() {
     /* document.getElementById("shootModal").style.display = "block"; */
       
-    const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf";
+    const shootUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf";
 
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -753,7 +741,7 @@ function closeComment() {
    function openChatGPT() {
     /* document.getElementById("chatModal").style.display = "block"; */
       
-    const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf";
+    const chatUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/chatGPT.pdf";
 
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
