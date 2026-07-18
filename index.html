@@ -240,7 +240,7 @@ display: none;
 
     </p>
     <h2>Shooting Scripts and Comments</h2>
-  <p>  <button onclick="openComment()">Shooting Script</button></p>
+  <p>  <button onclick="openShoot()">Shooting Script</button></p>
 </div>
 
 
@@ -684,9 +684,29 @@ document.addEventListener("DOMContentLoaded", function () {
       container.style.display = "none";
       fallback.style.display = "block";
     }
+    container = document.getElementById("shoot-container");
+    fallback = document.getElementById("mobile-shoot-fallback");
+
+    if (container && fallback) {
+      container.style.display = "none";
+      fallback.style.display = "block";
+    }
+
+    container = document.getElementById("chat-container");
+    fallback = document.getElementById("mobile-chat-fallback");
+
+    if (container && fallback) {
+      container.style.display = "none";
+      fallback.style.display = "block";
+    }
+    
   } else {
     // Desktop safety net: Ensure the mobile button is strictly hidden on laptops
     const fallback = document.getElementById("mobile-pdf-fallback");
+    if (fallback) fallback.style.display = "none";
+     const fallback = document.getElementById("mobile-chat-fallback");
+    if (fallback) fallback.style.display = "none";
+     const fallback = document.getElementById("mobile-shoot-fallback");
     if (fallback) fallback.style.display = "none";
   }
 });
@@ -714,6 +734,21 @@ function closeComment() {
       
 }
 
+    function openShoot() {
+    /* document.getElementById("shootModal").style.display = "block"; */
+      
+    const pdfUrl = "https://biggleswaffles.github.io/ScfiFiPoker.github.io/SciFi_poker_game_SCRIPT_v2.pdf";
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        window.open(shootUrl, "_blank");
+    } else {
+        document.getElementById("shootModal").style.display = "block";
+    }
+      
+}
+
    function openChatGPT() {
     /* document.getElementById("chatModal").style.display = "block"; */
       
@@ -722,7 +757,7 @@ function closeComment() {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
     if (isSafari) {
-        window.open(pdfUrl, "_blank");
+        window.open(chatUrl, "_blank");
     } else {
         document.getElementById("chatModal").style.display = "block";
     }
@@ -732,6 +767,11 @@ function closeComment() {
 function closePdf() {
     document.getElementById("pdfModal").style.display = "none";
 }
+
+    function closeShoot() {
+    document.getElementById("shootModal").style.display = "none";
+}
+    
     function closeChat() {
     document.getElementById("chatModal").style.display = "none";
 }
@@ -768,6 +808,12 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 
+           modal = document.getElementById("shootModal");
+
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  
            modal = document.getElementById("chatModal");
 
     if (event.target == modal) {
